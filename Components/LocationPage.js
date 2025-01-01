@@ -39,6 +39,7 @@ export default function LocationPage({ navigation }) {
     } catch (error) {
       console.log(error);
     }
+    // comment
   };
   const { formattedAddress, city, region, country, postalCode } =
     state?.address[0];
