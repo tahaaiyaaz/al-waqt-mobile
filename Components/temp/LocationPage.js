@@ -83,7 +83,7 @@ export default function LocationPage({ navigation }) {
               Current Location
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.btn} onPress={reverseGeocode}>
+          <TouchableOpacity style={styles.btn}>
             <Text
               style={{ fontSize: 15, color: "#E2F1E7", fontWeight: "bold" }}
             >

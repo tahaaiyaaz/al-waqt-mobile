@@ -4,11 +4,11 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 export default function WelcomePage({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Welcome</Text>
-      <Text style={styles.subText}>Register your Masjid</Text>
+      <Text style={styles.heading}>Al Waqt</Text>
+      <Text style={styles.subText}>Your Own Islamic Community App</Text>
       <TouchableOpacity
         style={styles.btn}
-        onPress={() => navigation.navigate("Location Page")}
+        onPress={() => navigation.navigate("Home Page")}
       >
         <Text style={{ fontSize: 20, color: "#E2F1E7", fontWeight: "bold" }}>
           Let's Start
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   subText: {
-    fontSize: 30,
+    fontSize: 20,
     color: "#387478",
     fontWeight: "bold",
   },
