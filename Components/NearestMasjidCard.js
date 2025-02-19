@@ -5,11 +5,21 @@ export default function NearestMasjidCard({
   MasjidName,
   MasjidDistance,
   NextNamazTime,
+  navigation,
+  masjid
 }) {
   return (
-    <TouchableOpacity>
-      <View style={styles.container}>
-        <Text style={styles.text}>{MasjidName}</Text>
+    <TouchableOpacity 
+    
+    
+    onPress={() => navigation.navigate("About Page",{masjid})}
+    >
+      <View style={styles.container}
+      
+      >
+        <Text style={styles.text}
+        
+        >{MasjidName}</Text>
         <Text style={styles.text}>{MasjidDistance}</Text>
         <Text style={styles.text}>{NextNamazTime}</Text>
       </View>

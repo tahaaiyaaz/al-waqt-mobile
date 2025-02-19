@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Button } from "react-native";
 import * as Location from "expo-location";
 import SearchBar from "./SearchBar";
+import PrayerTimeComponent from "./arragemasjidsaccordingtotime";
 
-const CurrentLocationUI = ({ setMasjidData }) => {
+
+const CurrentLocationUI = ({ setMasjidData,setLaterMasjidData,setEarlierMasjidData }) => {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [address, setAddress] = useState(null);
@@ -11,7 +13,7 @@ const CurrentLocationUI = ({ setMasjidData }) => {
   const [longitude, setLongitude] = useState(null);
   const [city, setCity] = useState(null);
   const [country, setCountry] = useState(null);
-
+  const [earliermasjiddata,setearliermasjiddata] = useState(null)
   //tapped masjid data
   const [sendCoords, setSendCoords] = useState([]);
 
@@ -35,7 +37,6 @@ const CurrentLocationUI = ({ setMasjidData }) => {
     // uses current location to display masjids
     //getallnearestmasjids(location.coords.latitude, location.coords.longitude);
     // uses tapped location to display masjids
-    console.log(sendCoords);
     if (sendCoords.length == 0) {
       getallnearestmasjids(location.coords.latitude, location.coords.longitude);
     } else {
@@ -69,6 +70,8 @@ const CurrentLocationUI = ({ setMasjidData }) => {
       .then((json) => {
         setData(json);
         setMasjidData(json);
+        setearliermasjiddata(json)
+        setLaterMasjidData()
         setLoading(false);
       })
       .catch((error) => {
@@ -90,6 +93,11 @@ const CurrentLocationUI = ({ setMasjidData }) => {
       <SearchBar
         setSendCoords={setSendCoords}
         getallnearestmasjids={getallnearestmasjids}
+      />
+
+<PrayerTimeComponent
+        mosqueData={data}
+        setEarlierMasjidData={setEarlierMasjidData}
       />
       {/* <Text>Current Location:</Text>
       {location ? (
