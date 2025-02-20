@@ -8,7 +8,7 @@ export default function WelcomePage({ navigation }) {
       <Text style={styles.subText}>Your Own Islamic Community App</Text>
       <TouchableOpacity
         style={styles.btn}
-        onPress={() => navigation.navigate("Home Page")}
+        onPress={() => navigation.navigate("MainTabs")}
       >
         <Text style={{ fontSize: 20, color: "#E2F1E7", fontWeight: "bold" }}>
           Let's Start

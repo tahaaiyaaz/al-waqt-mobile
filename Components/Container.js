@@ -8,6 +8,9 @@ import MasjidDetail from './MasjidDetail';
 
 import UpdateTimingsPage from "./UpdateTimingsPage";
 
+import MainTabs from "./maintabs";
+import Signup from "./Signup";
+import AccountsPage from "./AccountsPage";
 
 
 // Container component
@@ -21,11 +24,29 @@ const Container = () => {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="Welcome Page" component={WelcomePage} />
-        <Stack.Screen name="Home Page" component={HomePage} />
-        <Stack.Screen name="About Page" component={AboutMasjidPage} />
+        <Stack.Screen name="Welcome Page" component={WelcomePage} 
+          options={{ headerShown: false }} />
+        <Stack.Screen name="Home Page" component={HomePage} 
+          options={{ headerShown: false }}/>
+        <Stack.Screen name="About Page" component={AboutMasjidPage} 
+          options={{ headerShown: false }}/>
 
+<Stack.Screen
+          name="SignUp"
+          component={Signup}
+          options={{ headerShown: false }}
+        />
 
+<Stack.Screen
+          name="AccountsPage"
+          component={AccountsPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="MainTabs"
+          component={MainTabs}
+          options={{ headerShown: false }}
+        />
 
         <Stack.Screen 
           name="UpdateTimingsPage" 

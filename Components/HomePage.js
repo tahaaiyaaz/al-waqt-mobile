@@ -53,36 +53,21 @@ export default function HomePage({ navigation }) {
     if (data && data.masjids && data.masjids.length !== 0) {
       return (
         <>
-          {data.masjids
-            .slice(0, showAll ? data.masjids.length : 2)
-            .map((masjid) => (
-              <TouchableOpacity
-
-              // key={masjid.id}
-              // onPress={() => 
-                
-                
-              //   {
-              //     console.log("masjids")
-
-              //     navigation.navigate("About Page")
-              //   }
-              
-              
-              // }
-              >
-
-              <NearestMasjidCard
-                key={masjid.id}
-                MasjidName={masjid.details.name}
-                MasjidDistance={masjid.distance}
-                NextNamazTime={masjid.nextNamazTime}
-                navigation={navigation}
-                masjid={masjid}
-              />
-
-</TouchableOpacity>
-            ))}
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {data.masjids
+              .slice(0, showAll ? data.masjids.length : 2)
+              .map((masjid) => (
+                <TouchableOpacity key={masjid.id}>
+                  <NearestMasjidCard
+                    MasjidName={masjid.details.name}
+                    MasjidDistance={masjid.distance}
+                    NextNamazTime={masjid.nextNamazTime}
+                    navigation={navigation}
+                    masjid={masjid}
+                  />
+                </TouchableOpacity>
+              ))}
+          </ScrollView>
           {data.masjids.length > 2 && (
             <TouchableOpacity
               style={styles.showMoreButton}
@@ -107,18 +92,20 @@ export default function HomePage({ navigation }) {
     if (data && data.masjids && data.masjids.length !== 0) {
       return (
         <>
-          {data.masjids
-            .slice(0, showAll ? data.masjids.length : 2)
-            .map((masjid) => (
-              <NearestMasjidCard
-                key={masjid.mosqueId || masjid.id}
-                MasjidName={masjid.mosqueName || masjid.details.name}
-                MasjidDistance={masjid.distance || "20"}
-                NextNamazTime={masjid.time || masjid.nextNamazTime}
-                navigation={navigation}
-                masjid={masjid}
-              />
-            ))}
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {data.masjids
+              .slice(0, showAll ? data.masjids.length : 2)
+              .map((masjid) => (
+                <NearestMasjidCard
+                  key={masjid.mosqueId || masjid.id}
+                  MasjidName={masjid.mosqueName || masjid.details.name}
+                  MasjidDistance={masjid.distance || "20"}
+                  NextNamazTime={masjid.time || masjid.nextNamazTime}
+                  navigation={navigation}
+                  masjid={masjid}
+                />
+              ))}
+          </ScrollView>
           {data.masjids.length > 2 && (
             <TouchableOpacity
               style={styles.showMoreButton}
@@ -140,24 +127,26 @@ export default function HomePage({ navigation }) {
 
   // Render function for Later Prayer Masjids (with reversed order)
   const renderMasjidListForLater = (earliermasjids, showAll, setShowAll) => {
-    let data = earliermasjids
+    let data = earliermasjids;
     if (data && data.masjids && data.masjids.length !== 0) {
       // Create a reversed copy without mutating the state
       const reversedMasjids = [...data.masjids].reverse();
       return (
         <>
-          {reversedMasjids
-            .slice(0, showAll ? reversedMasjids.length : 2)
-            .map((masjid) => (
-              <NearestMasjidCard
-                key={masjid.mosqueId || masjid.id}
-                MasjidName={masjid.mosqueName || masjid.details.name}
-                MasjidDistance={masjid.distance || "20"}
-                NextNamazTime={masjid.time || masjid.nextNamazTime}
-                navigation={navigation}
-                masjid={masjid}
-              />
-            ))}
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {reversedMasjids
+              .slice(0, showAll ? reversedMasjids.length : 2)
+              .map((masjid) => (
+                <NearestMasjidCard
+                  key={masjid.mosqueId || masjid.id}
+                  MasjidName={masjid.mosqueName || masjid.details.name}
+                  MasjidDistance={masjid.distance || "20"}
+                  NextNamazTime={masjid.time || masjid.nextNamazTime}
+                  navigation={navigation}
+                  masjid={masjid}
+                />
+              ))}
+          </ScrollView>
           {data.masjids.length > 2 && (
             <TouchableOpacity
               style={styles.showMoreButton}
@@ -190,9 +179,7 @@ export default function HomePage({ navigation }) {
       />
 
       {/* Nearby Masjids Section */}
-      <Text style={styles.subHeadings}
-     
-      >Nearby </Text>
+      <Text style={styles.subHeadings}>Nearby</Text>
       {renderMasjidList(masjidData, showAllNearby, setShowAllNearby)}
 
       {/* Earlier Prayer Masjids Section */}
@@ -240,35 +227,3 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
